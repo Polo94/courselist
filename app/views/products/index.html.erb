@@ -1,1 +1,8 @@
 <h1> Index view page </h1>
+
+<% @products.each do |product| %>
+  <h2> <%= product.title %> </h2>
+    <p> <em><%= product.quantity  %></em>  <%= product.description %></p>
+
+
+<% end %>
