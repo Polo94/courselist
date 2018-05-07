@@ -39,6 +39,12 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def complete
+    @product = Product.find(params[:id])
+    @product.update_attribute(:completed_at, Time.now)
+    redirect_to root_path
+  end
+
 
   private
 
