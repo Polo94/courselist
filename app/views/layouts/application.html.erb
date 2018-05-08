@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Courselist</title>
+    <title>BastardsWE</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,12 +11,12 @@
 
   <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header">
-          <%= link_to "Courselist", root_path, class: "navbar-brand" %>
+        <div class="navbar-header d-flex flex-row mx-auto">
+          <%= link_to "BASTARDS LISTS", root_path, class: "navbar-brand" %>
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav d-flex flex-row mx-auto">
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <% if current_user.present? %>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
@@ -24,6 +24,9 @@
             <li><%= link_to "Log In", user_session_path %></li>
           <% end %>
         </ul>
+        <% if user_signed_in? %>
+          <p><%= link_to "New Product", new_product_path, class: "btn btn-outline-primary mx-auto" %></p>
+        <% end %>
       </div>
     </nav>
 
