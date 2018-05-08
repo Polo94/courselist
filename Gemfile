@@ -22,6 +22,8 @@ gem 'jbuilder'
 
 gem 'simple_form', '~> 4.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'font-awesome-rails'
+gem 'bootstrap'
 
 
 group :development, :test do
