@@ -1,21 +1,44 @@
 <h1> Shopping list </h1>
 
+<div class="col-md-6 col-md-offset-3">
+
   <% @products.each do |product| %>
 
     <% if product.completed? %>
 
-      <h2 style="opacity: 0.6;"><strike><%= link_to product.title, product %> </strike></h2>
-      <p style="opacity: 0.6;"> <em><%= product.quantity  %></em>  <%= product.description %></p>
-      <p>Completed <%= time_ago_in_words(product.completed_at) %> ago</p>
-      <p><%= link_to "Mark as Complete",  complete_product_path(product), method: :patch %></p>
+      <div class="row product">
+
+        <div class="col-md-8">
+          <h2 style="opacity: 0.6;"><strike><%= link_to product.title, product %> </strike></h2>
+          <p style="opacity: 0.6;"> <em><%= product.quantity  %></em>  <%= product.description %></p>
+          <p>Completed <%= time_ago_in_words(product.completed_at) %> ago</p>
+        </div>
+
+        <div class="col-md-4">
+          <p><%= link_to "Mark as Complete",  complete_product_path(product), method: :patch, class:"btn btn-outline-success" %></p>
+        </div>
 
     <% else %>
-      <h2><%= link_to product.title, product %></h2>
-      <p> <em><%= product.quantity  %></em><%= product.description %></p>
-      <p>Created <%= time_ago_in_words(product.created_at) %> ago</p>
-      <p><%= link_to "Mark as Complete",  complete_product_path(product), method: :patch %></p>
+      <div class="row product">
+
+        <div class="col-md-8">
+          <h2><%= link_to product.title, product %></h2>
+          <p> <em><%= product.quantity  %></em><%= product.description %></p>
+          <p>Created <%= time_ago_in_words(product.created_at) %> ago</p>
+        </div>
+
+        <div class="col-md-4">
+          <p><%= link_to "Mark as Complete",  complete_product_path(product), method: :patch, class: "btn btn-outline-success " %></p>
+        </div>
+
+      </div>
     <% end %>
+
   <% end %>
+  </div>
+
   <% if user_signed_in? %>
-    <p><%= link_to "New Product", new_product_path %></p>
+    <p><%= link_to "New Product", new_product_path, class: "btn btn-outline-primary" %></p>
   <% end %>
+
+</div>
